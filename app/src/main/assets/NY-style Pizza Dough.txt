@@ -1,0 +1,9 @@
+: Dough
+- flour | 600g
+- water | 400g
+- salt | 2 tsp
+- dry yeast | 1 tsp
+- olive oil | 2 tbsp
+- sugar | 1 tbsp
+> it gives 4 pizzas (use 125g of mozzarella cheese per pizza)
+
