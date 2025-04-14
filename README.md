@@ -1,99 +1,69 @@
-MyRecipes
+# MyRecipes
 
-MyRecipes to aplikacja do zarządzania przepisami kulinarnymi stworzona przy użyciu Jetpack Compose oraz Material3. Aplikacja umożliwia tworzenie, przeglądanie, edycję oraz usuwanie przepisów zapisanych jako pliki tekstowe.
+**MyRecipes** to aplikacja do zarządzania przepisami kulinarnymi, stworzona w Kotlinie z użyciem **Jetpack Compose** i **Material3**. Umożliwia tworzenie, przeglądanie, edycję oraz usuwanie przepisów zapisanych w formacie `.txt`.
 
-Funkcje:
+---
 
-Lista Przepisów:
+## Funkcje
 
-Przeglądaj listę dostępnych przepisów zapisanych w plikach tekstowych.
+- **Lista przepisów**
+  - Przegląd dostępnych przepisów zapisanych jako pliki `.txt`.
 
-Dodawanie Przepisu:
+- **Dodawanie przepisu**
+  - Tworzenie nowego przepisu po podaniu jego nazwy.
+  - Automatyczne utworzenie pliku i aktualizacja listy.
 
-Dodaj nowy przepis, podając jego nazwę. Aplikacja tworzy nowy plik przepisu i aktualizuje listę.
+- **Usuwanie przepisu**
+  - Tryb usuwania z potwierdzeniem przed skasowaniem pliku.
 
-Usuwanie Przepisu:
+- **Szczegóły przepisu**
+  - Widok z podziałem na sekcje: składniki i wskazówki (tips).
 
-W trybie usuwania możesz łatwo usunąć niechciane przepisy. System poprosi o potwierdzenie przed usunięciem.
+- **Tryb edycji**
+  - Dodawanie, edytowanie i usuwanie składników w poszczególnych sekcjach.
+  - Edycja istniejących sekcji lub dodanie nowych.
+  - Ostrzeżenie przy próbie wyjścia z niezapisanymi zmianami.
 
-Szczegóły Przepisu:
+- **Nawigacja**
+  - Płynna nawigacja między ekranami z użyciem Android Navigation Compose.
 
-Otwórz przepis, aby zobaczyć jego szczegóły, w tym sekcje, składniki oraz dodatkowe wskazówki (tips).
+---
 
-Tryb Edycji:
+## Technologie
 
-W trybie edycji możesz:
+- **Język:** Kotlin  
+- **UI:** Jetpack Compose  
+- **Design:** Material3  
+- **Nawigacja:** Android Navigation Compose  
+- **Obsługa plików:** Własna implementacja – `RecipesRepository`
 
-Dodawać, modyfikować lub usuwać składniki w poszczególnych sekcjach.
+---
 
-Edytować istniejące sekcje oraz dodawać nowe.
+## Struktura projektu
 
-Modyfikować wskazówki do przepisu.
+### MainActivity
+- Inicjalizuje interfejs użytkownika (edge-to-edge).
+- Konfiguruje nawigację między ekranami.
 
-System ostrzega o niezapisanych zmianach przy próbie wyjścia z trybu edycji.
+### MainScreen
+- Prezentuje listę przepisów.
+- Dialog do dodawania nowych przepisów.
+- Tryb usuwania z potwierdzeniem.
+- Opcje importu i eksportu plików `.txt`.
 
-Nawigacja:
+### DetailsScreen
+- Edycja i podgląd szczegółów przepisu.
+- Zarządzanie sekcjami, składnikami i wskazówkami.
+- Obsługa stanu edycji i zapisu.
 
-Aplikacja korzysta z komponentu nawigacji Compose, umożliwiając płynne przejścia między ekranem głównym a ekranem szczegółów przepisu.
+### RecipesRepository
+- Logika operacji na plikach:
+  - Tworzenie
+  - Zapisywanie
+  - Usuwanie
+  - Pobieranie zawartości
 
-Technologie
+### parseRecipe
+- Parsowanie pliku przepisu do wewnętrznej struktury danych używanej w interfejsie.
 
-Język: Kotlin
-
-Framework UI: Jetpack Compose
-
-Design: Material3
-
-Nawigacja: Android Navigation Component (Compose)
-
-Obsługa plików: Własna implementacja RecipesRepository do zarządzania przepisami
-
-Struktura Projektu
-
-MainActivity:
-
-Główna aktywność, która:
-
-Inicjalizuje interfejs użytkownika i włącza tryb edge-to-edge.
-
-Konfiguruje nawigację między ekranami głównym (MainScreen) i szczegółów przepisu (DetailsScreen).
-
-MainScreen:
-
-Ekran główny prezentujący listę przepisów oraz umożliwiający:
-
-Dodawanie nowego przepisu przez wyskakujące okno dialogowe.
-
-Włączanie trybu usuwania (delete mode) oraz potwierdzanie usunięcia przepisu.
-
-Eksport plików do Downloads
-
-Import plików TXT
-
-DetailsScreen:
-
-Ekran szczegółów wybranego przepisu, w którym można:
-
-Przeglądać i edytować zawartość przepisu, w tym sekcje i składniki.
-
-Dodawać nowe sekcje i składniki.
-
-Edytować wskazówki (tips) dla każdej sekcji.
-
-Zarządzać stanem edycji oraz zapisywać zmiany przy powrocie.
-
-RecipesRepository:
-
-Klasa obsługująca operacje na plikach przepisu, w tym:
-
-Pobieranie zawartości przepisu.
-
-Tworzenie nowych plików przepisu.
-
-Usuwanie istniejących przepisów.
-
-Zapisywanie zmian w edytowanych przepisach.
-
-parseRecipe:
-
-Funkcja do parsowania zawartości pliku przepisu na strukturę danych, która jest wykorzystywana do wyświetlania poszczególnych sekcji i składników.
+---
